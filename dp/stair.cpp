@@ -14,7 +14,7 @@ int stairs(int n,int k){
     }
     if(n>1){
         
-            k=stairs(n-1,k)+stairs(n-2,k);
+            k+=min(stairs(n-1,k),stairs(n-2,k));
             
         }
         
@@ -28,8 +28,8 @@ int stairs(int n,int k){
 int main()
 {
     fastio;
-    int n;
-    vector<int> st(n+1,-1);
+    int n=7;
+    cout<<stairs(n+1,-1);
 
     return 0;
 }
