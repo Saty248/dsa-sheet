@@ -29,7 +29,7 @@ vector<string> pospal(string s,int i,int j){
         s3.push_back(s1);//answer for current func call
 
     }
-        vector<string> ansbel= pospal(s,i+1,1);
+        vector<string> ansbel= pospal(s,i+1,i+1);
         for(auto val:ansbel)
             {
                 s3.push_back(val);
