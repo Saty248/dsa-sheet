@@ -27,23 +27,7 @@ long long int solve(int coins[], int N, int sum,int i,vector<vector<int>> &dp) {
     }
 
 
-    long long int solveMem(int coins[], int N, int sum,int i, vector<vector<int>> &dp) {
-    if(i==N || sum<0){
-        dp[sum][i]=0;
-        return 0;
-    }
-   if(sum==0){
-     dp[sum][i]=1;
-    return 1;
-   }
- //  cout<<sum<<"->"<<i<<"="<<dp[sum][i]<<endl;
-  if (dp[sum][i]!=-1) return dp[sum][i];
-    long long int  inc=solveMem(coins,N,sum-coins[i],i,dp);
-    long long int exc=solveMem(coins,N,sum,++i,dp);
-    
-    dp[sum][i]=inc+exc;
-    return dp[sum][i];
-    }
+   
 int main()
 {
     fastio;

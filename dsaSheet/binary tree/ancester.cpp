@@ -17,13 +17,16 @@ class Node{
         left=right=NULL;
     }
 };
-int target=5;
+int target=8;
 int solve(Node* root,int &k){
     if(!root){
         return -1;
     }
 
     int left=solve(root,k);
+    if(k==0 || target==left){
+        return root->val==target?root->val:left;
+    }
     int right=solve(root,k);
     if(k==0){
         return root->val==target?root->val:max(left,right);
@@ -45,16 +48,16 @@ int solve(Node* root,int &k){
 int main()
 {
     fastio;
-     Node* root=new Node(8);
-    root->left=new Node(3);
-     root->right=new Node(10); 
-    root->left->left=new Node(1);
-     root->right->left=new Node(6);
-    root->right->right=new Node(14);
-     root->right->right->left=new Node(13);
-    root->right->left->left=new Node(4);
-    root->right->left->right=new Node(7); 
-    unordered_map<string,int> m;
+     Node* root=new Node(1);
+    root->left=new Node(2);
+     root->right=new Node(3); 
+    root->left->left=new Node(4);
+     root->right->left=new Node(5);
+    root->right->right=new Node(6);
+     root->right->right->left=new Node(9);
+    root->right->left->left=new Node(7);
+    root->right->left->right=new Node(8); 
+    
     int k=3;
    int ans=solve(root,k);
    if(ans==target){
